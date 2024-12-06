@@ -1,0 +1,13 @@
+prefix=C:/Program Files (x86)/Muse
+exec_prefix=${prefix}
+libdir=C:/Program Files (x86)/Muse/lib
+includedir=C:/Program Files (x86)/Muse/include
+
+Name: sndfile
+Description: A library for reading and writing audio files
+Requires:
+Requires.private:  
+Version: 1.2.2
+Libs: -L${libdir} -lsndfile
+Libs.private: 
+Cflags: -I${includedir}

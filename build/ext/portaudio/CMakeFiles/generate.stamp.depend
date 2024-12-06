@@ -1,0 +1,17 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.28/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/TestBigEndian.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/61481/Documents/code/Muse/ext/portaudio/CMakeLists.txt
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/FindASIOSDK.cmake
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/cmake_uninstall.cmake.in
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/options_cmake.h.in
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/portaudio-2.0.pc.in
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/portaudioConfig.cmake.in
+C:/Users/61481/Documents/code/Muse/ext/portaudio/cmake_support/template_portaudio.def

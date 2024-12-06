@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\libsndfile\programs\sndfile-info.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\libsndfile\programs\common.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\ext\libsndfile\programs\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\61481\Documents\code\Muse\ext\libsndfile\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4760F056-CDC6-31BC-93E2-F8479CF29A36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D393F022-EC5A-3B54-8170-4E66A6475052}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

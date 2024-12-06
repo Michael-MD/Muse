@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\conf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\ct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\dft-vrank-geq1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\f77api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\hc2hc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\rdft-vrank-geq1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\vrank-geq1-rdft2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\threads\openmp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\61481\Documents\code\Muse\ext\fftw-3.3.10\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D393F022-EC5A-3B54-8170-4E66A6475052}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

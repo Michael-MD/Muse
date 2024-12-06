@@ -1,0 +1,11 @@
+prefix=C:/Program Files (x86)/Muse
+exec_prefix=C:/Program Files (x86)/Muse
+libdir=C:/Program Files (x86)/Muse/lib
+includedir=C:/Program Files (x86)/Muse/include
+
+Name: FFTW
+Description: fast Fourier transform library
+Version: 3.3.9
+Libs: -L${libdir} -lfftw3f 
+Libs.private: -lm
+Cflags: -I${includedir}

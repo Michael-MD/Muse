@@ -1,0 +1,49 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.28/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/FindSQLite3.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/TestBigEndian.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake/share/cmake-3.28/Templates/CPackConfig.cmake.in
+C:/Users/61481/Documents/code/Muse/build/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/CMakeLists.txt
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/CheckCPUArch.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/FindFLAC.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/FindOgg.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/FindOpus.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/FindSpeex.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/FindVorbis.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/Findmp3lame.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/Findmpg123.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/SndFileChecks.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/SndFileConfig.cmake.in
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/TestInline.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/cmake/TestLargeFiles.cmake
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/sndfile.pc.in
+C:/Users/61481/Documents/code/Muse/ext/libsndfile/src/config.h.cmake

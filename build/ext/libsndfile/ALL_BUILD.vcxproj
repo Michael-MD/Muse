@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CE1256B3-9F3A-3B44-9D96-626551A6292D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\61481\Documents\code\Muse\ext\libsndfile\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/61481/Documents/code/Muse/ext/libsndfile/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/61481/Documents/code/Muse -BC:/Users/61481/Documents/code/Muse/build --check-stamp-file C:/Users/61481/Documents/code/Muse/build/ext/libsndfile/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindSQLite3.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\61481\Documents\code\Muse\build\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\CheckCPUArch.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindFLAC.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOgg.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOpus.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindSpeex.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindVorbis.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmp3lame.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmpg123.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileChecks.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileConfig.cmake.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestInline.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestLargeFiles.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\sndfile.pc.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\src\config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/61481/Documents/code/Muse/ext/libsndfile/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/61481/Documents/code/Muse -BC:/Users/61481/Documents/code/Muse/build --check-stamp-file C:/Users/61481/Documents/code/Muse/build/ext/libsndfile/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindSQLite3.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\61481\Documents\code\Muse\build\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\CheckCPUArch.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindFLAC.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOgg.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOpus.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindSpeex.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindVorbis.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmp3lame.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmpg123.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileChecks.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileConfig.cmake.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestInline.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestLargeFiles.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\sndfile.pc.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\src\config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/61481/Documents/code/Muse/ext/libsndfile/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/61481/Documents/code/Muse -BC:/Users/61481/Documents/code/Muse/build --check-stamp-file C:/Users/61481/Documents/code/Muse/build/ext/libsndfile/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindSQLite3.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\61481\Documents\code\Muse\build\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\CheckCPUArch.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindFLAC.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOgg.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOpus.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindSpeex.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindVorbis.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmp3lame.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmpg123.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileChecks.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileConfig.cmake.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestInline.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestLargeFiles.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\sndfile.pc.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\src\config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/61481/Documents/code/Muse/ext/libsndfile/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/61481/Documents/code/Muse -BC:/Users/61481/Documents/code/Muse/build --check-stamp-file C:/Users/61481/Documents/code/Muse/build/ext/libsndfile/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindSQLite3.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\61481\Documents\code\Muse\build\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\CheckCPUArch.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindFLAC.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOgg.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindOpus.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindSpeex.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\FindVorbis.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmp3lame.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\Findmpg123.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileChecks.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\SndFileConfig.cmake.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestInline.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\cmake\TestLargeFiles.cmake;C:\Users\61481\Documents\code\Muse\ext\libsndfile\sndfile.pc.in;C:\Users\61481\Documents\code\Muse\ext\libsndfile\src\config.h.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ZERO_CHECK.vcxproj">
+      <Project>{C4A4C3ED-4BE7-3B45-A48B-285B7AB72C19}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile.vcxproj">
+      <Project>{24C70A95-D4A7-38C7-B746-BB934DA86A18}</Project>
+      <Name>sndfile</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-cmp.vcxproj">
+      <Project>{46A6D936-3993-3622-8004-A4BE492EEDC7}</Project>
+      <Name>sndfile-cmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-concat.vcxproj">
+      <Project>{2E6FF1DC-6E8B-31F1-857B-B0D044112110}</Project>
+      <Name>sndfile-concat</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-convert.vcxproj">
+      <Project>{83449BD6-3E6D-3446-AEC1-0E99D8C38A44}</Project>
+      <Name>sndfile-convert</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-deinterleave.vcxproj">
+      <Project>{B69641B0-015A-385B-B1AB-137ACDA9C154}</Project>
+      <Name>sndfile-deinterleave</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-info.vcxproj">
+      <Project>{B3EE0BDF-6AF3-3653-A756-83ADE0DAD801}</Project>
+      <Name>sndfile-info</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-interleave.vcxproj">
+      <Project>{AE5026EA-AB7A-38F1-BC36-16002659A9B3}</Project>
+      <Name>sndfile-interleave</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-metadata-get.vcxproj">
+      <Project>{47E0BA5C-2900-3965-B5F7-D5B80BC6457F}</Project>
+      <Name>sndfile-metadata-get</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-metadata-set.vcxproj">
+      <Project>{F0E3CA72-D977-3010-B755-F09C5CE74AC5}</Project>
+      <Name>sndfile-metadata-set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-play.vcxproj">
+      <Project>{86BB9CB6-170B-32AF-86E4-861B4F9F985A}</Project>
+      <Name>sndfile-play</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\61481\Documents\code\Muse\build\ext\libsndfile\sndfile-salvage.vcxproj">
+      <Project>{579ADFE9-7520-385C-BED3-3811030DE60B}</Project>
+      <Name>sndfile-salvage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
