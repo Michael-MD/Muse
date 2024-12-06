@@ -28,20 +28,28 @@ typedef struct cmap_t {
 cmap_t* init_cmap(size_t n_stacks_freq, size_t n_stacks_seg);
 
 /**
- * Generates a constellation map (cmap) from a given spectrogram. The cmap consists of
- * stacked windows in both the frequency and time domains, with peak values identified
- * for each window in the spectrogram.
+ * Creates a Coordinate Map (cmap) from a spectrogram, finding peak coordinates
+ * within specified frequency and time windows. The function updates the spectrogram's
+ * frequency range and calculates the necessary window sizes in both frequency and time
+ * domains. It then identifies the peak in each window of the spectrogram and stores the
+ * peak coordinates in the cmap structure.
  *
- * The cmap is created based on the provided frequency resolution (`delta_freq_Hz`)
- * and time resolution (`delta_seg_sec`). The function uses a sliding window approach
- * to identify peak values in the spectrogram and stores the frequency and time coordinates
- * of the peaks in the cmap structure.
+ * @param sgram Pointer to the spectrogram (`sgram_t`), which contains the frequency-time
+ *              data and metadata, including frequency and time resolutions, as well as
+ *              spectrogram dimensions.
+ * @param delta_freq_Hz The width of the frequency window in Hertz. This defines the size
+ *                       of the window used for frequency-domain peak detection.
+ * @param delta_seg_sec The width of the time window in seconds. This defines the size
+ *                       of the window used for time-domain peak detection.
+ * @param max_freq_cutoff_Hz The maximum frequency cutoff in Hertz. The spectrogram will
+ *                            be updated to reflect this new frequency range by adjusting
+ *                            its frequency resolution and total number of frequency bins.
  *
- * @param sgram The spectrogram structure from which the cmap is generated.
- * @param delta_freq_Hz The frequency resolution of the cmap (spacing between frequency bins in Hz).
- * @param delta_seg_sec The time resolution of the cmap (spacing between time bins in seconds).
- *
- * @return A pointer to the created cmap structure containing frequency-time coordinates of peaks.
+ * @return A pointer to a `cmap_t` structure containing the coordinates of the peak values
+ *         found within each frequency-time window of the spectrogram. The `cmap` structure
+ *         includes metadata such as time and frequency step sizes, and maximum time and
+ *         frequency values.
  */
-cmap_t* make_cmap(sgram_t* sgram, double delta_freq_Hz, double delta_seg_sec);
+cmap_t* make_cmap(sgram_t* sgram, double delta_freq_Hz, double delta_seg_sec, double max_freq_cutoff_Hz);
+
 

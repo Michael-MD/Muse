@@ -52,9 +52,14 @@ static void find_peak_sgram_window(sgram_t* sgram, unsigned int delta_seg_sample
 
 		}
 	}
+
 }
 
-cmap_t* make_cmap(sgram_t* sgram, double delta_freq_Hz, double delta_seg_sec) {
+cmap_t* make_cmap(sgram_t* sgram, double delta_freq_Hz, double delta_seg_sec, double max_freq_cutoff_Hz) {
+
+	// update sgram metadata
+	sgram->n_freq = (max_freq_cutoff_Hz / sgram->max_freq_Hz) * sgram->n_freq;
+	sgram->max_freq_Hz = max_freq_cutoff_Hz;
 
 	// delta_freq [Hz] -> delta_freq_Hz [samples] -- window height in sgram
 	unsigned int delta_freq_samples = (delta_freq_Hz / sgram->max_freq_Hz) * sgram->n_freq;
