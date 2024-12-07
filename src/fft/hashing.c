@@ -26,11 +26,11 @@ cpairs_t* make_cpairs(cmap_t* cmap, double tzone_delta_freq_Hz, double tzone_del
 	// determine target zone height in samples ensuring it is at least 1
 	unsigned int tzone_delta_freq_samples = max(1, tzone_delta_freq_Hz / cmap->cmap_delta_freq_Hz);
 
-	unsigned int n_tzone_pnts = tzone_delta_time_samples * tzone_delta_freq_samples;
-
 	// ensure window dimensions are odd for well defined centre anchor point
-	if (tzone_delta_time_samples % 2 != 0) tzone_delta_time_samples--;
-	if (tzone_delta_freq_samples % 2 != 0) tzone_delta_freq_samples--;
+	if (tzone_delta_time_samples % 2 != 0) tzone_delta_time_samples++;
+	if (tzone_delta_freq_samples % 2 != 0) tzone_delta_freq_samples++;
+	
+	unsigned int n_tzone_pnts = tzone_delta_time_samples * tzone_delta_freq_samples;
 
 	// convert hop distances to samples
 	// note: note hop has resolution up to window size chosen in cmap creation
@@ -79,12 +79,12 @@ cpairs_t* make_cpairs(cmap_t* cmap, double tzone_delta_freq_Hz, double tzone_del
 						continue;
 
 					cpairs->cpairs[cpair_index].hash = (hash_t){
-						.freq1_Hz = anchor_freq * cmap->delta_freq_Hz,
-						.freq2_Hz = target_freq * cmap->delta_freq_Hz,
-						.delta_t_ms = (target_time - anchor_time) * delta_time_ms,
+						.freq1_Hz = cmap->freqs[anchor_time][anchor_freq] * cmap->delta_freq_Hz,
+						.freq2_Hz = cmap->freqs[target_time][target_freq] * cmap->delta_freq_Hz,
+						.delta_t_ms = (cmap->times[target_time][target_freq] - cmap->times[anchor_time][anchor_freq]) * delta_time_ms,
 					};
 
-					cpairs->cpairs[cpair_index++].anchor_time_ms = anchor_time * delta_time_ms;
+					cpairs->cpairs[cpair_index++].anchor_time_ms = cmap->times[anchor_time][anchor_freq] * delta_time_ms;
 
 				}
 			}

@@ -53,6 +53,9 @@ sgram_t* make_sgram(audio_t* audio, double window_sec, double hop_sec) {
 	// set max frequency (Nyquist frequency)
 	sgram->max_freq_Hz = audio->sample_rate / 2;
 
+	// set duration in seconds
+	sgram->max_seg_sec = audio->duration_sec;
+
 	// calculate frequency resolution (spacing between bins)
 	sgram->delta_freq_Hz = sgram->max_freq_Hz / (double)sgram->n_freq;
 
