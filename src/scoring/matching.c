@@ -1,5 +1,6 @@
 #include "scoring/matching.h"
 #include "scoring/histogram/histogram.h"
+#include "scoring/histogram/statistics.h"
 #include "fft/hashing.h"
 
 static inline bool check_hash_match(hash_t* hash_a, hash_t* hash_b, double freq_tol_Hz, double time_tol_ms) {
@@ -55,4 +56,24 @@ void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip,
 
        
 	}
+}
+
+bool score_hgram(hgram_t* hgram, unsigned int n) {
+
+	// obtain hgram stats
+	float mu = mean(hgram);
+	float var = variance(hgram);
+
+	// find peak
+	unsigned int peak_count = hgram_peak_count(hgram);
+
+	// check count is n^2 standard deviations from mean at least
+	// two standard deviations from the mean.
+	float stepa = (peak_count - mu);
+	float stebb = stepa * stepa / var;
+	if ((peak_count - mu) * (peak_count - mu) >= n * var)
+		return true;
+
+	return false;
+
 }

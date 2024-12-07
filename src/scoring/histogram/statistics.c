@@ -29,7 +29,7 @@ float variance(hgram_t* hgram) {
 		var += (hgram->bins[bin] - mu) * (hgram->bins[bin] - mu);
 	}
 
-	var /= (hgram->n_bins - 1);
+	var /= hgram->n_bins;
 
 	return var;
 
