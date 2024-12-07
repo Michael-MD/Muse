@@ -2,8 +2,6 @@
 #include "scoring/histogram/histogram.h"
 #include "fft/hashing.h"
 
-#include "debugging/dumping.h"
-
 static inline bool check_hash_match(hash_t* hash_a, hash_t* hash_b, double freq_tol_Hz, double time_tol_ms) {
     // Calculate the absolute difference for frequency 1
     double freq1_diff = hash_a->freq1_Hz >= hash_b->freq1_Hz
@@ -34,6 +32,14 @@ void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip,
 	for (size_t track = 0; track < cpairs_track->n_cpairs; track++) {
 		for (size_t clip = 0; clip < cpairs_clip->n_cpairs; clip++) {
 
+			// enter match into histogram
+			float offset_start_track_ms = cpairs_track->cpairs[track].offset_start_ms;
+			float offset_start_clip_ms = cpairs_clip->cpairs[clip].offset_start_ms;
+
+            // if clip appears to slot into a negative time in the track, then it is a false positive
+            if (offset_start_clip_ms >= offset_start_track_ms)
+                continue;
+
 			hash_t hash_track = cpairs_track->cpairs[track].hash;
 			hash_t hash_clip = cpairs_clip->cpairs[clip].hash;
 
@@ -43,15 +49,10 @@ void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip,
 			if (!hashes_match)
 				continue;
 
-			// enter match into histogram
-			float anchor_time_track_ms = cpairs_track->cpairs[track].anchor_time_ms;
-			float anchor_time_clip_ms = cpairs_clip->cpairs[clip].anchor_time_ms;
-
-			hgram_add(hgram, anchor_time_track_ms - anchor_time_clip_ms);
+			hgram_add(hgram, offset_start_track_ms - offset_start_clip_ms);
 
 		}
 
-        if(track % 10000 == 0)
-            dump_1d_arrayu32(hgram->bins, hgram->n_bins, "C:/Users/61481/Documents/code/sample music/dump/hgram/hgram.txt");
+       
 	}
 }

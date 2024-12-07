@@ -100,7 +100,7 @@ cpairs_t* make_cpairs(cmap_t* cmap, double tzone_delta_freq_Hz, double tzone_del
 						.delta_t_ms = (cmap->times[target_time][target_freq] - cmap->times[anchor_time][anchor_freq]) * delta_time_ms,
 					};
 
-					cpairs->cpairs[cpair_index++].anchor_time_ms = cmap->times[anchor_time][anchor_freq] * delta_time_ms;
+					cpairs->cpairs[cpair_index++].offset_start_ms = cmap->times[anchor_time][anchor_freq] * delta_time_ms;
 
 				}
 			}

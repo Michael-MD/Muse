@@ -24,7 +24,7 @@ int main() {
     cpairs_t* cpairs_clip = process_audio(&audio_clip);
 
     // --------------- import and process reference track ---------------
-    char* filename_track = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane.wav";
+    char* filename_track = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane sample long.wav";
     audio_t audio_track;
 
     import_audio_track_mono(filename_track, &audio_track);
@@ -33,14 +33,16 @@ int main() {
 
     // --------------- make hgram ---------------
     float bin_width, bin_min, bin_max;
-    bin_width = 250;  // <- perhaps 20? ms
+    bin_width = 50;  // <- perhaps 20? ms
     bin_min = 0;
-    bin_max = 10000;  // ms
+    bin_max = 15000;  // ms
     hgram_t* hgram = init_hgram(bin_width, bin_min, bin_max);
 
     // --------------- perform comparison ---------------
-    double freq_tol_Hz = 250, time_tol_ms = 250; // ms
+    double freq_tol_Hz = 10, time_tol_ms = 10; // ms
     update_hgram(hgram, cpairs_track, cpairs_clip, freq_tol_Hz, time_tol_ms);
+
+    dump_1d_arrayu32(hgram->bins, hgram->n_bins, "C:/Users/61481/Documents/code/sample music/dump/hgram/hgram.txt");
 
     free_cpairs(cpairs_clip);
     free_cpairs(cpairs_track);

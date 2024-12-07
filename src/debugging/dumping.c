@@ -109,7 +109,7 @@ void dump_cpairs_to_file(cpairs_t* cpairs, const char* filename) {
             cpairs->cpairs[i].hash.freq1_Hz,
             cpairs->cpairs[i].hash.freq2_Hz,
             cpairs->cpairs[i].hash.delta_t_ms,
-            cpairs->cpairs[i].anchor_time_ms);
+            cpairs->cpairs[i].offset_start_ms);
     }
 
     fclose(file);

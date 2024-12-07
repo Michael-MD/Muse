@@ -12,7 +12,7 @@ typedef struct hash_t {
 
 typedef struct cpair_t {
 	hash_t hash;
-	float anchor_time_ms;
+	float offset_start_ms;
 } cpair_t;
 
 typedef struct cpairs_t {
