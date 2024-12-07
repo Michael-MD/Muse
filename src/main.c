@@ -33,7 +33,10 @@ int main() {
 
     dump_cpairs_to_file(cpairs, "C:/Users/61481/Documents/code/sample music/dump/cpairs/cpairs sample.txt");
 
+    free_sgram(sgram);
+    free_cmap(cmap);
+    free_cpairs(cpairs);
+
     return 0;
 
-    // TODO: make deallocation functions for sgram, cmap, cpairs
 }

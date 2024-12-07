@@ -32,6 +32,15 @@ typedef struct sgram_t {
  */
 sgram_t* init_sgram(size_t n_freq, size_t n_seg);
 
+/**
+ * Frees the memory allocated for a `sgram_t` structure, including its 2D array
+ * (`freqs`) for frequency values. This function ensures that all dynamically
+ * allocated memory is properly released to avoid memory leaks.
+ *
+ * @param sgram Pointer to the `sgram_t` structure to be freed. This structure contains
+ *              the spectrogram with allocated memory for frequency values.
+ */
+void free_sgram(sgram_t* sgram);
 
 /**
  * @brief Creates a spectrogram for a mono audio signal.

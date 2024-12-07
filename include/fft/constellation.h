@@ -31,6 +31,17 @@ typedef struct cmap_t {
 cmap_t* init_cmap(size_t n_stacks_freq, size_t n_stacks_seg);
 
 /**
+ * Frees the memory allocated for a `cmap_t` structure, including its 2D arrays
+ * (`freqs` and `times`) for frequency and time coordinates. This function ensures
+ * that all dynamically allocated memory is properly released to avoid memory leaks.
+ *
+ * @param cmap Pointer to the `cmap_t` structure to be freed. This structure contains
+ *             the constellation map with allocated memory for frequency and time
+ *             stacks.
+ */
+void free_cmap(cmap_t* cmap);
+
+/**
  * Creates a Coordinate Map (cmap) from a spectrogram, finding peak coordinates
  * within specified frequency and time windows. The function updates the spectrogram's
  * frequency range and calculates the necessary window sizes in both frequency and time

@@ -18,7 +18,23 @@ cpairs_t* init_cpairs(size_t n_cpairs) {
 
 }
 
-cpairs_t* make_cpairs(cmap_t* cmap, double tzone_delta_freq_Hz, double tzone_delta_time_sec, double hop_freq_Hz, double hop_time_sec, double f) {
+
+void free_cpairs(cpairs_t* cpairs) {
+	// Check if cpairs is not NULL before freeing memory
+	if (cpairs == NULL) {
+		return;
+	}
+
+	// Free the memory allocated for the array of cpair_t elements
+	free(cpairs->cpairs);
+
+	// Finally, free the cpairs structure itself
+	free(cpairs);
+}
+
+
+cpairs_t* make_cpairs(cmap_t* cmap, double tzone_delta_freq_Hz, double tzone_delta_time_sec,
+	double hop_freq_Hz, double hop_time_sec, double f) {
 
 	// determine target zone width in samples ensuring it is at least 1
 	unsigned int  tzone_delta_time_samples = max(1, tzone_delta_time_sec / cmap->cmap_delta_time_sec);

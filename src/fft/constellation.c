@@ -32,6 +32,28 @@ cmap_t* init_cmap(size_t n_stacks_freq, size_t n_stacks_seg) {
 
 }
 
+
+void free_cmap(cmap_t* cmap) {
+	// Check if cmap is not NULL before freeing memory
+	if (cmap == NULL) {
+		return;
+	}
+
+	// Free the memory allocated for each frequency-time stack row
+	for (size_t freq = 0; freq < cmap->n_stacks_seg; freq++) {
+		free(cmap->freqs[freq]);
+		free(cmap->times[freq]);
+	}
+
+	// Free the arrays of pointers to rows
+	free(cmap->freqs);
+	free(cmap->times);
+
+	// Finally, free the cmap structure itself
+	free(cmap);
+}
+
+
 static void find_peak_sgram_window(sgram_t* sgram, unsigned int delta_seg_samples, unsigned int delta_freq_samples, unsigned int seg_window, unsigned int freq_window, cmap_t* cmap) {
 
 	float max_val = 0;

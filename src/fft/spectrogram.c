@@ -28,6 +28,26 @@ sgram_t* init_sgram(size_t n_freq, size_t n_seg) {
 
 }
 
+
+void free_sgram(sgram_t* sgram) {
+	// Check if sgram is not NULL before freeing memory
+	if (sgram == NULL) {
+		return;
+	}
+
+	// Free the memory allocated for each frequency segment row
+	for (size_t seg = 0; seg < sgram->n_seg; seg++) {
+		free(sgram->freqs[seg]);
+	}
+
+	// Free the array of pointers to rows
+	free(sgram->freqs);
+
+	// Finally, free the sgram structure itself
+	free(sgram);
+}
+
+
 sgram_t* make_sgram(audio_t* audio, double window_sec, double hop_sec) {
 
 	muse_assert_valid_ptr(audio, "audio passed to make_sgram NULL.");
