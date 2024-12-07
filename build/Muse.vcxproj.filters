@@ -13,13 +13,34 @@
     <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\debugging\dumping.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\fft\constellation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\fft\dft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\fft\hashing.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\fft\spectrogram.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\scoring\histogram\histogram.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\scoring\histogram\statistics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\scoring\matching.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\stream\live_recognition.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\61481\Documents\code\Muse\src\stream\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,10 +60,31 @@
     <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\debugging\dumping.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\fft\constellation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\fft\dft.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\fft\hashing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\fft\spectrogram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\scoring\histogram\histogram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\scoring\histogram\statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\scoring\matching.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\stream\live_recognition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\61481\Documents\code\Muse\include\stream\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

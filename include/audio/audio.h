@@ -22,12 +22,12 @@ typedef struct audio_t {
  *    the frequency-time domain.
  * 3. Extracts complex pairs from the constellation map using `make_cpairs()`, which are used for
  *    further analysis or signal processing.
- * 4. Frees the memory allocated for the spectrogram and constellation map before returning the complex pairs.
+ * 4. Frees the memory allocated for the spectrogram and constellation map before returning cpairs.
  *
  * @param audio A pointer to an `audio_t` structure containing the audio signal to be processed.
  *              The audio signal is assumed to be mono and should already be loaded in memory.
  *
- * @return A pointer to a `cpairs_t` structure containing the complex pairs extracted from the
+ * @return A pointer to a `cpairs_t` structure containing the cpairs extracted from the
  *         constellation map, representing significant frequency-time peaks in the audio signal.
  *
  * @note The function uses hardcoded values for the parameters of the spectrogram, constellation map,

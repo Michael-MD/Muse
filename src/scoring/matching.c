@@ -28,7 +28,7 @@ static inline bool check_hash_match(hash_t* hash_a, hash_t* hash_b, double freq_
     return freq1_match && freq2_match && time_match;
 }
 
-void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip, double freq_tol_Hz, double time_tol_ms) {
+void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip, double freq_tol_Hz, double time_tol_ms, float clip_time_offset_ms) {
 
 	for (size_t track = 0; track < cpairs_track->n_cpairs; track++) {
 		for (size_t clip = 0; clip < cpairs_clip->n_cpairs; clip++) {
@@ -50,7 +50,7 @@ void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip,
 			if (!hashes_match)
 				continue;
 
-			hgram_add(hgram, offset_start_track_ms - offset_start_clip_ms);
+			hgram_add(hgram, offset_start_track_ms - (offset_start_clip_ms + clip_time_offset_ms));
 
 		}
 

@@ -19,8 +19,6 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 	static double elapsed_time_sec = 0;
 
 	stream_prop_t* stream_prop = (stream_prop_t*)user_data;
-
-	elapsed_time_sec += frames_per_buffer / stream_prop->audio_clip->sample_rate;
 	
 	// arrange incoming signal in convenient data structure
 	stream_prop->audio_clip->samples = (float*)input_buffer;	// reinterpret input stream as float stream
@@ -32,10 +30,13 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 
 	// update histogram
 	double freq_tol_Hz = 10, time_tol_ms = 10; // ms
-	update_hgram(stream_prop->hgram, stream_prop->cpairs_track, cpairs_clip, freq_tol_Hz, time_tol_ms);
+	update_hgram(stream_prop->hgram, stream_prop->cpairs_track, cpairs_clip, freq_tol_Hz, time_tol_ms, elapsed_time_sec * 1e3);
 	
 	// free clip's cpairs
 	free_cpairs(cpairs_clip);
+
+	// the remaining code requires the elapsed time from the end of the recieved segment
+	elapsed_time_sec += frames_per_buffer / stream_prop->audio_clip->sample_rate;
 
 	// check periodically for statistically significant match
 	if (elapsed_time_sec > time_since_match_check_sec + match_check_period_sec) {

@@ -17,10 +17,11 @@ typedef struct hash_t hash_t;
  * @param cpairs_clip A set of control pairs representing the clip data.
  * @param freq_tol_Hz The frequency tolerance in Hz for determining hash matches.
  * @param time_tol_ms The time tolerance in milliseconds for determining hash matches.
+ * @param clip_time_offset_ms Offset from beginning of clip, used to match segmented clip.
  *
  * @returns void
  */
-void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip, double freq_tol_Hz, double time_tol_ms);
+void update_hgram(hgram_t* hgram, cpairs_t* cpairs_track, cpairs_t* cpairs_clip, double freq_tol_Hz, double time_tol_ms, float clip_time_offset_ms);
 
 /**
  * Scores the histogram to determine if the peak count is sufficiently large, indicating a match between the track and clip.

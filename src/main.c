@@ -19,11 +19,11 @@
 
 int main() {
 
-
     double sample_rate = 48000;
     unsigned long frames_per_buffer_sec = 2;
 
     begin_live_recognition(sample_rate, frames_per_buffer_sec);
+
 
     return 0;
 
