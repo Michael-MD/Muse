@@ -4,6 +4,7 @@
 #include "scoring/histogram/histogram.h"
 #include "audio/audio_io.h"
 #include "scoring/matching.h"
+#include "binary/binary_io.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include "debugging/dumping.h"
@@ -80,19 +81,15 @@ void begin_live_recognition(double sample_rate, double frames_per_buffer_sec) {
 		//.samples  // this will be set to the incoming data in the callback
 	};
 
-	// *****TEMPORARY*****: identifies single preloadewd track
-	// import and process reference track
-	char* filename_track = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane sample long.wav";
-	audio_t audio_track;
-	
-	import_audio_track_mono(filename_track, &audio_track);
-	cpairs_t* cpairs_track = process_audio(&audio_track);
+	// *****TEMPORARY*****: imports since track from binary file
+	char* filename_track = "C:/Users/61481/Documents/code/sample music/database/Bridgit Mendler - Hurricane.bin";
+	cpairs_t* cpairs_track = read_cpairs_from_binary(filename_track);
 
 	// make empty histogram 
 	float bin_width, bin_min, bin_max;
 	bin_width = 50;
 	bin_min = 0;
-	bin_max = audio_track.duration_sec * 1e3;
+	bin_max = cpairs_track->duration_sec * 1e3;
 	hgram_t* hgram = init_hgram(bin_width, bin_min, bin_max);
 
 	// create data structure to be passed to callback function

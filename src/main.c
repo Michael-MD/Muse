@@ -13,11 +13,13 @@
 #include "scoring/matching.h"
 #include "stream/utils.h"
 #include "stream/live_recognition.h"
+#include "binary/archiving.h"
 
 #define ms * 1e-3
 
 
 int main() {
+
 
     double sample_rate = 48000;
     unsigned long frames_per_buffer_sec = 2;
