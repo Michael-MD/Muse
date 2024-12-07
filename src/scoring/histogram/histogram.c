@@ -3,7 +3,7 @@
 #include <assert.h>
 
 // Function to initialize the histogram
-hgram_t* hgram_init(float bin_width, float min_value, float max_value) {
+hgram_t* init_hgram(float bin_width, float min_value, float max_value) {
     hgram_t* hgram = (hgram_t*)malloc(sizeof(hgram_t));
     assert(hgram != NULL);
 

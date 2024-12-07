@@ -2,33 +2,32 @@
 #include "fft/dft.h"
 #include <assert.h>
 #include <fftw3.h>
+#include "fft/spectrogram.h"
+#include "fft/constellation.h"
+#include "fft/hashing.h"
 
-void bwlimit_audio(audio_t* audio, double max_freq_Hz) {
+#define ms * 1e-3
 
-	// ensure audio is mono
-	assert(audio->n_channels == 1);
+cpairs_t* process_audio(audio_t* audio) {
 
-	size_t N = audio->frames;
-	fftwf_complex* complex_freqs = (fftwf_complex*)fftwf_malloc(sizeof(fftwf_complex) * (N / 2 + 1));
-	dft_r2c(audio->samples, N, complex_freqs);
+    sgram_t* sgram = make_sgram(audio, 50 ms, 10 ms);
 
-	// find index of maximal frequency
-	double nyquist_Hz = audio->sample_rate / 2;
+    //dump_2d_arrayf32(sgram->freqs, sgram->n_seg, sgram->n_freq, "C:/Users/61481/Documents/code/sample music/dump/sgram/sgram sample.txt");
+    //printf("%li %li", sgram->n_seg, sgram->n_freq);
 
-	// if the bandwidth limit is at or beyond nyquist then the request 
-	// is nonsense
-	if (max_freq_Hz >= nyquist_Hz)
-		return;
+    cmap_t* cmap = make_cmap(sgram, 50, 250 ms, 15000);
 
-	size_t max_freq_samples = (max_freq_Hz / nyquist_Hz) * N;
+    //dump_2d_arrayu32(cmap->freqs, cmap->n_stacks_seg, cmap->n_stacks_freq, "C:/Users/61481/Documents/code/sample music/dump/cmap/cmap freq sample.txt");
+    //dump_2d_arrayu32(cmap->times, cmap->n_stacks_seg, cmap->n_stacks_freq, "C:/Users/61481/Documents/code/sample music/dump/cmap/cmap times sample.txt");
+    //printf("%li %li", cmap->n_stacks_seg, cmap->n_stacks_freq);
 
-	// perform bandwidth limit
-	for (size_t freq = max_freq_samples; freq < N; freq++) {
-		complex_freqs[freq][0] = 0;
-		complex_freqs[freq][1] = 0;
-	}
+    double tzone_delta_freq_Hz = 200, tzone_delta_time_sec = 1000 ms, hop_freq_Hz = 250, hop_time_sec = 250 ms, f = 1;
+    cpairs_t* cpairs = make_cpairs(cmap, tzone_delta_freq_Hz, tzone_delta_time_sec, hop_freq_Hz, hop_time_sec, f);
 
-	dft_c2r(audio->samples, N, complex_freqs);
+    //dump_cpairs_to_file(cpairs, "C:/Users/61481/Documents/code/sample music/dump/cpairs/cpairs sample.txt");
 
-	fftwf_free(complex_freqs);
+    free_sgram(sgram);
+    free_cmap(cmap);
+
+    return cpairs;
 }

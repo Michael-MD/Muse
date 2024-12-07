@@ -1,5 +1,8 @@
 #pragma once
 
+// forward declaration
+typedef struct cpairs_t cpairs_t;
+
 typedef struct audio_t {
 	double sample_rate;	// samples/sec
 	size_t frames;
@@ -9,33 +12,26 @@ typedef struct audio_t {
 } audio_t;
 
 /**
- * @brief Apply a bandwidth limit to a mono audio signal.
+ * @brief Processes an audio signal by generating its spectrogram, constructing a constellation map,
+ *        and extracting peak coordinates to form complex pairs.
  *
- * This function limits the bandwidth of an audio signal by zeroing out frequency components
- * that are above a specified maximum frequency (`max_freq_Hz`). It first performs a Real-to-Complex
- * Fourier Transform (FFT) to convert the audio samples into the frequency domain, then truncates the
- * frequency components that exceed the `max_freq_Hz` threshold. Finally, it applies an inverse FFT to
- * transform the modified frequency domain data back into the time domain.
+ * This function performs the following steps:
+ * 1. Converts the input audio signal into a spectrogram using `make_sgram()`, which divides the signal
+ *    into time-frequency segments.
+ * 2. Constructs a constellation map from the spectrogram using `make_cmap()`, identifying peaks in
+ *    the frequency-time domain.
+ * 3. Extracts complex pairs from the constellation map using `make_cpairs()`, which are used for
+ *    further analysis or signal processing.
+ * 4. Frees the memory allocated for the spectrogram and constellation map before returning the complex pairs.
  *
- * The function ensures that the audio is mono, and the maximum frequency (`max_freq_Hz`) is constrained
- * to be below the Nyquist frequency, which is half the sample rate.
+ * @param audio A pointer to an `audio_t` structure containing the audio signal to be processed.
+ *              The audio signal is assumed to be mono and should already be loaded in memory.
  *
- * @param audio Pointer to an `audio_t` structure containing the audio data.
- *        The audio must be mono (one channel), and the `samples` array should contain the audio samples.
- * @param max_freq_Hz The maximum frequency (in Hz) that will be allowed to pass through the signal.
- *        Frequencies above this value will be zeroed out.
- *        The `max_freq_Hz` should be less than the Nyquist frequency (half the sample rate).
+ * @return A pointer to a `cpairs_t` structure containing the complex pairs extracted from the
+ *         constellation map, representing significant frequency-time peaks in the audio signal.
  *
- * @note This function uses FFTW for performing Fourier transforms. The audio data is assumed to be in
- *       floating point format (e.g., `float` samples).
- *
- * @note The bandwidth limiting operation is performed by zeroing out frequency components beyond
- *       the specified `max_freq_Hz`. If the specified `max_freq_Hz` exceeds or equals the Nyquist frequency,
- *       the function will return without modifying the audio.
- *
- * @note The function does not perform any checks to ensure that the `audio` parameter is valid.
- *       It is the caller's responsibility to ensure the input is a valid `audio_t` object with appropriate
- *       sample data.
+ * @note The function uses hardcoded values for the parameters of the spectrogram, constellation map,
+ *       and complex pairs extraction, which may need to be adjusted depending on the specific application.
+ *       Temporary data dumps to files (commented out) are included for debugging purposes.
  */
-void bwlimit_audio(audio_t* audio, double max_freq_Hz);
-
+cpairs_t* process_audio(audio_t* audio);

@@ -9,33 +9,41 @@
 #include "debugging/dumping.h"
 #include <stdio.h>
 #include "fft/hashing.h"
+#include "scoring/histogram/histogram.h"
+#include "scoring/matching.h"
 
 #define ms * 1e-3
 
 int main() {
-    char* filename = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane sample.wav";
-    audio_t audio;
+
+    // --------------- import and process sample clip ---------------
+    char* filename_clip = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane sample.wav";
+    audio_t audio_clip;
     
-    import_audio_track_mono(filename, &audio);
-    sgram_t* sgram = make_sgram(&audio, 50 ms, 10 ms);
+    import_audio_track_mono(filename_clip, &audio_clip);
+    cpairs_t* cpairs_clip = process_audio(&audio_clip);
 
-    //dump_2d_arrayf32(sgram->freqs, sgram->n_seg, sgram->n_freq, "C:/Users/61481/Documents/code/sample music/dump/sgram/sgram sample.txt");
-    //printf("%li %li", sgram->n_seg, sgram->n_freq);
+    // --------------- import and process reference track ---------------
+    char* filename_track = "C:/Users/61481/Documents/code/sample music/music/Bridgit Mendler - Hurricane.wav";
+    audio_t audio_track;
 
-    cmap_t* cmap = make_cmap(sgram, 50, 250 ms, 15000);
+    import_audio_track_mono(filename_track, &audio_track);
+    cpairs_t* cpairs_track = process_audio(&audio_track);
 
-    //dump_2d_arrayu32(cmap->freqs, cmap->n_stacks_seg, cmap->n_stacks_freq, "C:/Users/61481/Documents/code/sample music/dump/cmap/cmap freq sample.txt");
-    //dump_2d_arrayu32(cmap->times, cmap->n_stacks_seg, cmap->n_stacks_freq, "C:/Users/61481/Documents/code/sample music/dump/cmap/cmap times sample.txt");
-    //printf("%li %li", cmap->n_stacks_seg, cmap->n_stacks_freq);
 
-    double tzone_delta_freq_Hz = 200, tzone_delta_time_sec = 1000 ms, hop_freq_Hz = 50, hop_time_sec = 250 ms, f = 1;
-    cpairs_t* cpairs = make_cpairs(cmap, tzone_delta_freq_Hz, tzone_delta_time_sec, hop_freq_Hz, hop_time_sec, f);
+    // --------------- make hgram ---------------
+    float bin_width, bin_min, bin_max;
+    bin_width = 250;  // <- perhaps 20? ms
+    bin_min = 0;
+    bin_max = 10000;  // ms
+    hgram_t* hgram = init_hgram(bin_width, bin_min, bin_max);
 
-    dump_cpairs_to_file(cpairs, "C:/Users/61481/Documents/code/sample music/dump/cpairs/cpairs sample.txt");
+    // --------------- perform comparison ---------------
+    double freq_tol_Hz = 250, time_tol_ms = 250; // ms
+    update_hgram(hgram, cpairs_track, cpairs_clip, freq_tol_Hz, time_tol_ms);
 
-    free_sgram(sgram);
-    free_cmap(cmap);
-    free_cpairs(cpairs);
+    free_cpairs(cpairs_clip);
+    free_cpairs(cpairs_track);
 
     return 0;
 

@@ -24,7 +24,7 @@ typedef struct hgram_t {
  *
  * @return A pointer to the initialized `hgram_t` structure, representing the histogram.
  */
-hgram_t* hgram_init(float bin_width, float min_value, float max_value);
+hgram_t* init_hgram(float bin_width, float min_value, float max_value);
 
 
 /**
