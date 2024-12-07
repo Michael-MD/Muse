@@ -9,8 +9,10 @@ typedef struct hgram_t hgram_t;
 
 typedef struct stream_prop_t {
 	audio_t* audio_clip;
-	cpairs_t* cpairs_track;
-	hgram_t* hgram;
+	cpairs_t** cpairs_tracks;
+	hgram_t** hgrams;
+	char** track_names;
+	size_t n_tracks;
 } stream_prop_t;
 
 
