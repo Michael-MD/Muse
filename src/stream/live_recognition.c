@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "debugging/dumping.h"
 #include <stdlib.h>
+#include <omp.h>
 
 static int stream_callback(const void* input_buffer, void* output_buffer,
 	unsigned long frames_per_buffer, const PaStreamCallbackTimeInfo* time_info,
@@ -33,7 +34,9 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 	// update histograms
 	double freq_tol_Hz = 10, time_tol_ms = 10; // ms
 
-	for (size_t track = 0; track < stream_prop->n_tracks; track++) {
+	int track;
+	#pragma omp parallel for private(track)
+	for (track = 0; track < stream_prop->n_tracks; track++) {
 		update_hgram(stream_prop->hgrams[track], stream_prop->cpairs_tracks[track], cpairs_clip, freq_tol_Hz, time_tol_ms, elapsed_time_sec * 1e3);
 	}
 	
@@ -50,15 +53,23 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 		time_since_match_check_sec = elapsed_time_sec;
 
 		// check for match in each histogram
-		for (size_t track = 0; track < stream_prop->n_tracks; track++) {
-			bool match_found = score_hgram(stream_prop->hgrams[track], 100);
+		int track;
+		bool match_found = false;
+		char* match_name;
+		#pragma omp parallel for private(track)
+		for (track = 0; track < stream_prop->n_tracks; track++) {
+			bool hgram_match = score_hgram(stream_prop->hgrams[track], 100);
 
 			// end stream if match has been found
-			if (match_found) {
-				printf("Match found: %s.\n", stream_prop->track_names[track]);
-
-				return paAbort;
+			if (hgram_match) {
+				match_name = stream_prop->track_names[track];
+				match_found = true;
 			}
+		}
+
+		if (match_found) {
+			printf("Match found: %s.\n", match_name);
+			return paAbort;
 		}
 
 	}
