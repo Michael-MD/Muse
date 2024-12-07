@@ -32,7 +32,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${PORTAUDIO_DIR}/include
 )
 
-# Link the FFTW library to your executable
+# Link libraries to executable
 target_link_directories(Muse PRIVATE 
 	${CMAKE_SOURCE_DIR}/build/ext/fftw-3.3.10/Release
 	${CMAKE_SOURCE_DIR}/build/ext/libsndfile/Release
@@ -44,3 +44,11 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 	sndfile
 	portaudio_static_x64
 )
+
+# Conditionally include dirent header files for Windows,
+# dirent comes with standard C on unix-based systems
+IF(WIN32)
+	set(DIRECT_DIR ${CMAKE_SOURCE_DIR}/ext/dirent)
+	add_subdirectory(${DIRECT_DIR})
+	target_include_directories(${PROJECT_NAME} PUBLIC ${DIRECT_DIR}/include)
+ENDIF()
