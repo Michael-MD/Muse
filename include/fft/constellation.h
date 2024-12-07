@@ -5,14 +5,17 @@
 typedef struct sgram_t sgram_t;
 
 typedef struct cmap_t {
-	unsigned int** freqs; // [samples]
 	unsigned int** times; // [samples]
+	unsigned int** freqs; // [samples]
 	size_t n_stacks_seg;
 	size_t n_stacks_freq;
 	double max_freq_Hz;
 	double max_seg_sec;	
 	double delta_time_sec;	// distance between audio samples, mult. float** times to get seconds
 	double delta_freq_Hz;   // distance between freq samples, mult. float** freqs to get Hz
+	double cmap_delta_time_sec;	 // distance between audio samples in cmap in sec
+	double cmap_delta_freq_Hz;   // distance between audio samples in cmap in Hz
+
 } cmap_t;
 
 /**

@@ -81,6 +81,9 @@ cmap_t* make_cmap(sgram_t* sgram, double delta_freq_Hz, double delta_seg_sec, do
 	cmap->delta_time_sec = sgram->delta_seg_sec;
 	cmap->delta_freq_Hz = sgram->delta_freq_Hz;
 
+	cmap->cmap_delta_time_sec = delta_seg_sec;
+	cmap->cmap_delta_freq_Hz = delta_freq_Hz;
+
 	// set max frequency and corresponding track duration
 	cmap->max_seg_sec = sgram->max_seg_sec;
 	cmap->max_freq_Hz = sgram->max_freq_Hz;
