@@ -39,7 +39,7 @@ int archive_wav_dir(char* dir_src, char* dir_dst) {
             continue;
 
         // ensure entry is wav file
-        if (strcmp(get_extension(entry->d_name), "wav") != 0)
+        if (strcmp(get_extension(entry->d_name), "wav") != 0 && strcmp(get_extension(entry->d_name), "WAV") != 0)
             continue;
         
         printf("archiving %s...\n", entry->d_name);

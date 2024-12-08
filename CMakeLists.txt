@@ -12,6 +12,15 @@ file(GLOB_RECURSE HEADER_FILES "include/*.h")
 # use OpenMP if possible
 find_package(OpenMP REQUIRED)
 
+if(WIN32)
+	# argtable requires getopt.h whcih is unavailable on windows so 
+	# here is a substitute
+	set(GETOPT_W32 ${CMAKE_SOURCE_DIR}/ext/getopt-for-windows)
+
+    # Add getopt.c to the source files for Windows
+    set(SOURCE_FILES ${SOURCE_FILES} ${GETOPT_W32}/getopt.c)
+endif()
+
 add_executable(${PROJECT_NAME}
     ${SOURCE_FILES}
     ${HEADER_FILES}
@@ -62,8 +71,8 @@ IF(WIN32)
 
 	# argtable requires getopt.h whcih is unavailable on windows so 
 	# here is a substitute
-	set(GETOPT_W32 ${CMAKE_SOURCE_DIR}/ext/getopt-for-windows)
-	target_include_directories(argtable3 PUBLIC ${GETOPT_W32})
+	target_include_directories(argtable3 PUBLIC ${GETOPT_W32})			# have getopt.h available to argtable3
+	target_include_directories(${PROJECT_NAME} PUBLIC ${GETOPT_W32})	# have getopt.h available to Muse
 
 ENDIF()
 

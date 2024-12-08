@@ -75,7 +75,7 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 	static float match_check_period_sec = 1;
 	static float timeout_sec = 20;
 	static double elapsed_time_sec = 0;
-	static double min_run_duration_sec = 4;		// minimum time stream must run before it can be aborted
+	static double min_run_duration_sec = 2;		// minimum time stream must run before it can be aborted
 
 	stream_prop_t* stream_prop = (stream_prop_t*)user_data;
 	
