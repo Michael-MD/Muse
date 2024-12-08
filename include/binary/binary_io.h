@@ -2,6 +2,7 @@
 
 // forward declaration
 typedef struct cpairs_t cpairs_t;
+typedef struct stream_prop_t stream_prop_t;
 
 /**
  * Writes a cpairs_t structure to a binary file.
@@ -39,3 +40,12 @@ void write_cpairs_to_binary(const char* filename, const cpairs_t* cpairs);
  * @return A pointer to the cpairs_t structure containing the read data, or `NULL` if an error occurred.
  */
 cpairs_t* read_cpairs_from_binary(const char* filename);
+
+
+const char* get_extension(const char* filename);
+
+int change_extension(char* filename, const char* new_extension);
+
+size_t count_tracks_dir(char* dir_src);
+
+stream_prop_t* read_tracks_from_binary_dir(char* dir_src);

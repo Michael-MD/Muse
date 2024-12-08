@@ -23,37 +23,7 @@ void archive_wav_track(char* filename_src, char* filename_dst) {
 }
 
 
-static const char* get_extension(const char* filename) {
-    // Find the last period in the filename
-    const char* dot = strrchr(filename, '.');
-
-    // If there is no period or if it's at the beginning (i.e., hidden file), return NULL
-    if (!dot || dot == filename) {
-        return NULL;
-    }
-
-    // Return the substring after the last period
-    return dot + 1;  // Skip the period itself
-}
-
-static int change_extension(char* filename, const char* new_extension) {
-    // Find the last dot in the filename (if any)
-    char* dot = strrchr(filename, '.');
-
-    if (dot == NULL) {
-        // No dot found, so append the new extension
-        strcat(filename, ".");
-        strcat(filename, new_extension);
-    }
-    else {
-        // Replace the extension (after the last dot)
-        strcpy(dot + 1, new_extension);
-    }
-
-    return 0; // Return success
-}
-
-void archive_wav_dir(char* dir_src, char* dir_dst) {
+int archive_wav_dir(char* dir_src, char* dir_dst) {
 
     DIR* dir = opendir(dir_src);
     if (dir == NULL) {
@@ -93,4 +63,6 @@ void archive_wav_dir(char* dir_src, char* dir_dst) {
         perror("Failed to close directory");
         return 1;
     }
+
+    return 0;
 }

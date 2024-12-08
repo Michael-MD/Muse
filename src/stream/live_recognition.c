@@ -8,8 +8,63 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "debugging/dumping.h"
+#include "debugging/asserts.h"
 #include <stdlib.h>
 #include <omp.h>
+
+stream_prop_t* init_stream_prop(size_t n_tracks) {
+	
+	stream_prop_t* stream_prop = (stream_prop_t*)malloc(sizeof(stream_prop_t));
+	muse_assert_valid_ptr(stream_prop, "invalid stream_prop_t* memory allocation.");
+
+	// determine number of tracks to be loaded
+	stream_prop->n_tracks = n_tracks;
+
+	// allocate memory for track data
+	stream_prop->cpairs_tracks = (cpairs_t**)malloc(sizeof(cpairs_t*) * stream_prop->n_tracks);
+	muse_assert_valid_ptr(stream_prop->cpairs_tracks, "invalid cpairs_t** memory allocation.");
+
+	stream_prop->hgrams = (hgram_t**)malloc(sizeof(hgram_t*) * stream_prop->n_tracks);
+	muse_assert_valid_ptr(stream_prop->hgrams, "invalid hgram_t** memory allocation.");
+
+	stream_prop->track_names = (char**)malloc(sizeof(char*) * stream_prop->n_tracks);
+	muse_assert_valid_ptr(stream_prop->track_names, "invalid char** memory allocation.");
+
+	return stream_prop;
+}
+
+void free_stream_prop(stream_prop_t* stream_prop) {
+	if (stream_prop == NULL) {
+		return; // If the pointer is NULL, there's nothing to free
+	}
+
+	// Free track names (each element is a string, so we need to free each string)
+	for (size_t i = 0; i < stream_prop->n_tracks; i++) {
+		free(stream_prop->track_names[i]);  // Free each string
+	}
+
+	// Free the track names array itself
+	free(stream_prop->track_names);
+
+	// Free the cpairs_tracks array (assuming each cpairs_t* in the array may have been allocated)
+	for (size_t i = 0; i < stream_prop->n_tracks; i++) {
+		free_cpairs(stream_prop->cpairs_tracks[i]);  // Free each cpairs_t (if needed)
+	}
+
+	// Free the cpairs_tracks array itself
+	free(stream_prop->cpairs_tracks);
+
+	// Free the hgrams array (assuming each hgram_t* in the array may have been allocated)
+	for (size_t i = 0; i < stream_prop->n_tracks; i++) {
+		free(stream_prop->hgrams[i]);  // Free each hgram_t (if needed)
+	}
+
+	// Free the hgrams array itself
+	free(stream_prop->hgrams);
+
+	// Finally, free the stream_prop structure itself
+	free(stream_prop);
+}
 
 static int stream_callback(const void* input_buffer, void* output_buffer,
 	unsigned long frames_per_buffer, const PaStreamCallbackTimeInfo* time_info,
@@ -20,6 +75,7 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 	static float match_check_period_sec = 1;
 	static float timeout_sec = 20;
 	static double elapsed_time_sec = 0;
+	static double min_run_duration_sec = 4;		// minimum time stream must run before it can be aborted
 
 	stream_prop_t* stream_prop = (stream_prop_t*)user_data;
 	
@@ -67,7 +123,7 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 			}
 		}
 
-		if (match_found) {
+		if (match_found && elapsed_time_sec > min_run_duration_sec) {
 			printf("Match found: %s.\n", match_name);
 			return paAbort;
 		}
@@ -86,7 +142,7 @@ static int stream_callback(const void* input_buffer, void* output_buffer,
 }
 
 
-void begin_live_recognition(double sample_rate, double frames_per_buffer_sec) {
+void begin_live_recognition(double sample_rate, double frames_per_buffer_sec, char* dir_src) {
 
 	unsigned int frames_per_buffer = frames_per_buffer_sec * sample_rate;
 
@@ -99,52 +155,18 @@ void begin_live_recognition(double sample_rate, double frames_per_buffer_sec) {
 		//.samples  // this will be set to the incoming data in the callback
 	};
 
-	size_t n_tracks = 2;
 
-	// create data structure to be passed to callback function
-	stream_prop_t stream_prop = (stream_prop_t){
-		.audio_clip = &audio_clip,
-		.cpairs_tracks = (cpairs_t**)malloc(sizeof(cpairs_t*) * n_tracks),
-		.hgrams = (hgram_t**)malloc(sizeof(hgram_t*) * n_tracks),
-		.track_names = (char**)malloc(sizeof(char*) * n_tracks),
-		.n_tracks = n_tracks,
-	};
+	stream_prop_t* stream_prop = read_tracks_from_binary_dir(dir_src);
 
-	// add tracks
-	// *****TEMPORARY*****: imports since track from binary file
-	char* filename_track_1 = "C:/Users/61481/Documents/code/sample music/database/Bridgit Mendler - Hurricane.bin";
-	cpairs_t* cpairs_track_1 = read_cpairs_from_binary(filename_track_1);
-
-	char* filename_track_2 = "C:/Users/61481/Documents/code/sample music/database/Jessica Darrow - Surface Pressure.bin";
-	cpairs_t* cpairs_track_2 = read_cpairs_from_binary(filename_track_2);
-
-	stream_prop.cpairs_tracks[0] = cpairs_track_1;
-	stream_prop.cpairs_tracks[1] = cpairs_track_2;
-
-	stream_prop.track_names[0] = "Bridgit Mendler - Hurricane";
-	stream_prop.track_names[1] = "Jessica Darrow - Surface Pressure";
-
-	// make histogram for each track
-	for (size_t track = 0; track < stream_prop.n_tracks; track++) {
-
-		float bin_width, bin_min, bin_max;
-		bin_width = 50;
-		bin_min = 0;
-		bin_max = stream_prop.cpairs_tracks[track]->duration_sec * 1e3;
-		stream_prop.hgrams[track] = init_hgram(bin_width, bin_min, bin_max);
-
-	}
+	stream_prop->audio_clip = &audio_clip;
 
 	// start listening
 	printf("stream started.\n");
 
 	int n_channels = 1;
-    PaStream* stream = init_stream(n_channels, sample_rate, frames_per_buffer, stream_callback, (void*)&stream_prop);
+    PaStream* stream = init_stream(n_channels, sample_rate, frames_per_buffer, stream_callback, (void*)stream_prop);
     start_stream(stream);
 
-	free_cpairs(cpairs_track_1);
-	free_cpairs(cpairs_track_2);
-	free(stream_prop.cpairs_tracks);
-	free_hgram(stream_prop.hgrams);
-	free(stream_prop.track_names);
+	
+	free_stream_prop(stream_prop);
 }

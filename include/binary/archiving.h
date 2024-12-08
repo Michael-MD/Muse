@@ -39,7 +39,7 @@ void archive_wav_track(char* filename_src, char* filename_dst);
  *   will be saved.
  *
  * Returns:
- * - This function does not return any value. If there is an error opening
+ * - This function returns 0 on success. If there is an error opening
  *   or closing the directory, it will print an error message to `stderr`.
  *
  * Notes:
@@ -47,4 +47,4 @@ void archive_wav_track(char* filename_src, char* filename_dst);
  * - The file extension of each WAV file is changed to `.bin` before
  *   archiving.
  */
-void archive_wav_dir(char* dir_src, char* dir_dst);
+int archive_wav_dir(char* dir_src, char* dir_dst);

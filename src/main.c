@@ -24,17 +24,12 @@
 int main() {
 
 
-    char* dir_src = "C:/Users/61481/Documents/code/sample music/music_wav/";
-    char* dir_dst = "C:/Users/61481/Documents/code/sample music/database/";
-
-    archive_wav_dir(dir_src, dir_dst);
-
-    return 0;
-
-    /*double sample_rate = 44100;
+    double sample_rate = 44100;
     unsigned long frames_per_buffer_sec = 2;
+    char* dir_src = "C:/Users/61481/Documents/code/sample music/database/";
 
-    begin_live_recognition(sample_rate, frames_per_buffer_sec);*/
+
+    begin_live_recognition(sample_rate, frames_per_buffer_sec, dir_src);
 
 
     return 0;
