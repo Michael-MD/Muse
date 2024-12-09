@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
     // Handle the 'archiveTracks' option
     if (archive_tracks->count > 0) {
 
-        if (archive_tracks->count == 2) {
+        if (archive_tracks->count != 2) {
             printf("Error: '--archiveTracks' expects two arguments: the source directory containing .wav files and the "
                 "destination directory for the binary files. Received %i argument(s).\n", archive_tracks->count);
             return 1;
